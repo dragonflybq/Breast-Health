@@ -13,10 +13,24 @@
 
 <script src="jquery.datetimepicker.js"></script>
   <script>
+  var message;
+
+// alert dialog dismissed
+    function alertDismissed() {
+        // do something
+    }  
+  
 $(function(){
 $('#donebtn').click(function()
 {
+	
 	  window.location = 'index_home.html'
+	   navigator.notification.alert(
+            message,  // message
+            alertDismissed,         // callback
+            'Breast Health App',            // title
+            'Done'                  // buttonName
+        );
 });
 });
 $(document).ready(function() {
@@ -58,7 +72,7 @@ var remtime = ret[1];
  
 $('#setrem').click(function(){
  alert("Reminder Date saved succesfully");
- var message=document.getElementById('messagetext').value;
+message=document.getElementById('messagetext').value;
 	localStorage.setItem('message',message);
 
 });
